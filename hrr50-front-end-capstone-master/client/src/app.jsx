@@ -29,7 +29,7 @@ class Gallery extends React.Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: 'http://18.224.4.136:3000/photos',
+      url: '/photos',
     }).then((data) => {
       const photoArray = [];
       const property = {
@@ -113,7 +113,7 @@ class Gallery extends React.Component {
               this.showModal();
             }}
           >
-            <Dots src="https://lh3.googleusercontent.com/proxy/OiwrMASYxmaO5Rd647dux4b7P20fZ2R27FmMkvQABSyf5-OfTyhMXHxsb-NafVHnhZHD-WcLHBKaYzToZSmHTZ5LYj6cV_VzDPv_YkED1GeT" />
+            {/* <Dots src="https://lh3.googleusercontent.com/proxy/OiwrMASYxmaO5Rd647dux4b7P20fZ2R27FmMkvQABSyf5-OfTyhMXHxsb-NafVHnhZHD-WcLHBKaYzToZSmHTZ5LYj6cV_VzDPv_YkED1GeT" /> */}
             Show All Photos
           </Submit>
         </Grid>
