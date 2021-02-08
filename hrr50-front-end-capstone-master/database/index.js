@@ -1,19 +1,19 @@
-const mysql = require('mysql');
+const pgp = require('pg-promise')();
 
-const con = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'PhotoGallery',
-});
 
-con.connect((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('connected to the database');
-  }
-});
+const HOST = 'localhost';
+const PORT = 5432;
+const DB = 'photosdc';
+
+const conn_str = `postgres://${HOST}:${PORT}/${DB}`;
+const con = pgp(conn_str);
+
+//https://node-postgres.com/features/connecting
+//https://www.postgresql.org/docs/10/libpq-connect.html
+//https://stackoverflow.com/questions/53381429/how-to-use-connection-string-with-sequel-for-postgresql
+
+
+
 
 const addProperties = (name, location, favorites, callback) => {
   con.query(
@@ -34,6 +34,7 @@ const retrieveOneProperty = (index, callback) => {
 };
 
 module.exports = {
+  con,
   addPhotos,
   addProperties,
   retrieveOneProperty,
