@@ -27,11 +27,11 @@ const newPhoto = () => {
 };
 
 // const writer = csvWriter()
-// writer.pipe(fs.createWriteStream('Locations.csv'))
+// writer.pipe(fs.createWriteStream('locTEST.csv'))
 
 // console.time('data')
 // try {
-//   for (let i = 1; i <= 10000001; i++) {
+//   for (let i = 1; i <= 100; i++) {
 //     let p = newProperty();
 
 //     writer.write({
@@ -51,11 +51,11 @@ const newPhoto = () => {
 // console.log('done')
 
 const writer = csvWriter()
-writer.pipe(fs.createWriteStream('Photos10.csv'))
+writer.pipe(fs.createWriteStream('photoTEST.csv'))
 
 console.time('data')
 try {
-  for (let i = 9000001; i <= 10000000; i++) {
+  for (let i = 1; i <= 20; i++) {
     for (let j = 0; j < 6; j++) {
       let photo = faker.image.city()
       writer.write({

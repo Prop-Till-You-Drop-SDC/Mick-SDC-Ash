@@ -11,7 +11,8 @@
     "start dev": "nodemon ./server/server.js",
     "watch": "webpack -w",
     "seed": "node database/seed.js",
-    "test": "mocha --recursive --exit"
+    "test": "mocha --recursive --exit",
+    "dbseed": "node database/dbseeder.js"
   },
   "dependencies": {
     "@babel/cli": "^7.12.10",
@@ -31,6 +32,7 @@
     "nodemon": "^2.0.7",
     "nvm": "0.0.4",
     "pack": "^2.2.0",
+    "pg-promise": "^10.9.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sequelize": "^6.3.5",

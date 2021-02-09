@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const compression = require('compression');
-const { retrieveOneProperty } = require('../database/index.js');
+const db = require('../database/index.js');
 
 const port = 3123;
 const app = express();
@@ -16,8 +16,9 @@ app.get('/', cors(), (req, res) => {
   res.send('Hello from the server!');
 });
 
-app.get('/photos', cors(), (req, res) => {
-  retrieveOneProperty(1, (err, results) => {
+app.get('/photos', (req, res) => {
+  let item = Math.floor(Math.random() * 10000000)
+  db.retrieveOneProperty(item, (err, results) => {
     if (err) {
       res.send(err);
     } else {

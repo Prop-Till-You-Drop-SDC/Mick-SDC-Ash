@@ -13,29 +13,29 @@ const con = pgp(conn_str);
 //https://stackoverflow.com/questions/53381429/how-to-use-connection-string-with-sequel-for-postgresql
 
 
+//legacy funcs
 
+// const addProperties = (name, location, favorites, callback) => {
+//   con.query(
+//     'INSERT INTO Property (name, location, favorites) VALUES (?, ?, ?)', [name, location, favorites], callback,
+//   );
+// };
 
-const addProperties = (name, location, favorites, callback) => {
-  con.query(
-    'INSERT INTO Property (name, location, favorites) VALUES (?, ?, ?)', [name, location, favorites], callback,
-  );
-};
-
-const addPhotos = (photoURL, id, callback) => {
-  con.query(
-    'INSERT INTO Photos (photoUrl, propertyID) VALUES (?, ?)', [photoURL, id], callback,
-  );
-};
+// const addPhotos = (photoURL, id, callback) => {
+//   con.query(
+//     'INSERT INTO Photos (photoUrl, propertyID) VALUES (?, ?)', [photoURL, id], callback,
+//   );
+// };
 
 const retrieveOneProperty = (index, callback) => {
   con.query(
-    `select Property.name, Property.location, Property.favorites, photoURL from Property join Photos on Property.id = Photos.propertyID where Property.id = ${index}`, callback,
-  );
+    `Select name, city, favorites, photourl, photos.id from property INNER JOIN photos on photos.propid = property.id where property.id = ${index}`)
+    .then(result => {
+      callback(result)
+    })
 };
 
 module.exports = {
   con,
-  addPhotos,
-  addProperties,
-  retrieveOneProperty,
+  retrieveOneProperty
 };

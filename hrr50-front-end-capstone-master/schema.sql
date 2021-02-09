@@ -5,24 +5,27 @@ CREATE DATABASE photosdc;
 
 
 
-CREATE TABLE Property (
+CREATE TABLE property (
   id SERIAL PRIMARY KEY,
   name CHAR(255) NOT NULL,
-  location CHAR(255) NOT NULL,
+  city CHAR(255) NOT NULL,
   favorites INTEGER NOT NULL
 );
 
 
 CREATE TABLE Photos (
   id SERIAL PRIMARY KEY,
-  photoUrl CHAR(255) NULL DEFAULT NULL,
-  propID INT REFERENCES Property (id)
+  propID INT REFERENCES property(id),
+  photoUrl CHAR(255) NULL DEFAULT NULL
 );
 
---CREATE INDEX ON Photos (propID);
+CREATE INDEX ON photos (propid);
+
 
 
 --CREATE INDEX test1_id_index ON test1 (id);
+
+--https://www.convert-in.com/import-postgresql-script.htm
 
 
 

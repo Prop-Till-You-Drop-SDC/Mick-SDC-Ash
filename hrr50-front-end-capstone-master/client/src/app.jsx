@@ -31,6 +31,7 @@ class Gallery extends React.Component {
       method: 'get',
       url: '/photos',
     }).then((data) => {
+      console.log(data);
       const photoArray = [];
       const property = {
         name: null,
@@ -39,9 +40,9 @@ class Gallery extends React.Component {
       };
       for (let i = 0; i < data.data.length; i++) {
         property.name = data.data[0].name;
-        property.location = data.data[0].location;
+        property.location = data.data[0].city;
         property.favorites = data.data[0].favorites;
-        photoArray.push(data.data[i].photoURL);
+        photoArray.push(data.data[i].photourl);
       }
       this.setState({
         property,
