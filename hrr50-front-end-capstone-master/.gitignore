@@ -1,14 +1,6 @@
 npm-debug.log
 node_modules
 *.pem
-Photos1.csv
-Photos2.csv
-Photos3.csv
-Photos4.csv
-Photos5.csv
-Photos6.csv
-Photos7.csv
-Photos8.csv
-Photos9.csv
-Photos10.csv
-Locations.csv
+newrelic_agent.log
+newrelic.js
+.csv

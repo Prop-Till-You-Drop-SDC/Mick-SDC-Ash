@@ -3,6 +3,7 @@ const path = require('path');
 const cors = require('cors');
 const compression = require('compression');
 const db = require('../database/index.js');
+require('newrelic');
 
 const port = 3123;
 const app = express();

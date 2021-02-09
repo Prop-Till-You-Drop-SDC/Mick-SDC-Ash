@@ -27,6 +27,8 @@ class Gallery extends React.Component {
   }
 
   componentDidMount() {
+
+    console.time('get request')
     axios({
       method: 'get',
       url: '/photos',
@@ -49,6 +51,7 @@ class Gallery extends React.Component {
         photos: photoArray,
       });
     });
+    console.timeEnd('get request')
   }
 
   nextPicture() {
